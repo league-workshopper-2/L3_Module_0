@@ -14,7 +14,7 @@ public class TextUndoRedo implements KeyListener {
 		TextUndoRedo redo = new TextUndoRedo();
 		redo.stuff();
 		redo.keyPressed(null);
-		Stack<Character> letters = new Stack<Character>();
+		redo.Stack();
 	}
 
 	JFrame frame = new JFrame();
@@ -28,7 +28,6 @@ public class TextUndoRedo implements KeyListener {
 		frame.addKeyListener(this);
 		panel.add(label);
 		label.setVisible(true);
-
 	}
 
 	@Override
@@ -36,15 +35,17 @@ public class TextUndoRedo implements KeyListener {
 		// TODO Auto-generated method stub
 		String text;
 		String remove;
+		text = label.getText();
+		text += e.getKeyChar();
+		label.setText(text);
 		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-			text = label.getText();
-			label.setText(text);
+			remove = label.getText();
+			remove = text.replace(0, 0);
 
-		} else {
-			text = label.getText();
-			text += e.getKeyChar();
-			label.setText(text);
-		}
+		} // else {
+
+		// }
+
 	}
 
 	@Override
@@ -59,6 +60,10 @@ public class TextUndoRedo implements KeyListener {
 
 	}
 
+	void Stack() {
+		Stack<Character> letters = new Stack<Character>();
+
+	}
 	/*
 	 * Create a JFrame with a JPanel and a JLabel.
 	 * 
